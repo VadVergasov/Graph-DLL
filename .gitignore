@@ -9,10 +9,8 @@
 !/include/graph
 !/include/graph/empty_vertex.h
 !/include/graph/vertex.h
-
-!/include/private
-!/include/private/ivertex.h
-!/include/private/iedge.h
+!/include/graph/ivertex.h
+!/include/graph/iedge.h
 
 !/include/utils
 !/include/utils/edge_hasher.h

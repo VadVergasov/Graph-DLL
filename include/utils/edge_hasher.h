@@ -1,9 +1,12 @@
 #include <functional>
 
-#include "../private/iedge.h"
+#include "../graph/iedge.h"
 
+namespace graph {
 class EdgeHasher {
-    unsigned long long operator()(IEdge& edge){
-        return std::hash<unsigned long long>()();
+    unsigned long long operator()(IEdge& edge) {
+        return std::hash<unsigned long long>()(std::any_cast<unsigned long long>(edge.start.value));
     }
 };
+
+}  // namespace graph

@@ -5,7 +5,7 @@
 namespace graph {
 
 class IEdge {
-   private:
+   protected:
     IVertex& start;
     IVertex& end;
 

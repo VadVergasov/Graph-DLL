@@ -1,6 +1,6 @@
 #pragma once
 
-#include "private/ivertex.h"
+#include "ivertex.h"
 
 namespace graph {
 
