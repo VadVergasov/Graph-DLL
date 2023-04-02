@@ -6,7 +6,7 @@ namespace graph {
 
 class IBidirectionalEdge : public virtual IEdge {
    public:
-    virtual IVertex& prev() = 0;
+    virtual IVertex& prev() const = 0;
 };
 
 }  // namespace graph

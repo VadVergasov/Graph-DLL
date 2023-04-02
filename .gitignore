@@ -8,6 +8,7 @@
 
 !/include/graph
 
+!/include/graph/bidirectionaledge.h
 !/include/graph/empty_vertex.h
 !/include/graph/ibidirectionaledge.h
 !/include/graph/iedge.h
@@ -23,6 +24,7 @@
 !/src
 
 !/src/graph
+!/src/graph/bidirectionaledge.cpp
 !/src/graph/empty_vertex.cpp
 !/src/graph/ibidirectionaledge.cpp
 !/src/graph/iedge.cpp
