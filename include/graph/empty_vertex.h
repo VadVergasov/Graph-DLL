@@ -6,9 +6,11 @@ namespace graph {
 
 class Vertex : IVertex {
    public:
-    Vertex(std::any value) : IVertex(value) {}
+    Vertex() = default;
 
-    std::any GetValue() const override { return std::any(); }
+    Vertex(const Vertex& other) {}
+
+    std::any GetValue() const override { return std::any{nullptr}; }
 };
 
 }  // namespace graph

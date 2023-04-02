@@ -6,9 +6,10 @@
 
 namespace graph {
 class EdgeHasher {
-    unsigned long long operator()(IEdge& edge) {
-        return std::hash<unsigned long long>()(std::any_cast<unsigned long long>(edge.start.value));
-    }
+    // TODO
+    // unsigned long long operator()(IEdge& edge) {
+    //     return std::hash<unsigned long long>()(std::any_cast<unsigned long long>(edge.start.value));
+    // }
 };
 
 }  // namespace graph

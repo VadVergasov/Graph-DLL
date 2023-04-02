@@ -5,13 +5,12 @@
 namespace graph {
 
 class IWeightEdge : IEdge {
-   protected:
-    std::any value;
-
    public:
-    void SetValue(std::any) {}
+    virtual void SetValue(std::any) = 0;
 
-    std::any GetValue() const { return value; }
+    virtual std::any GetValue() const = 0;
+
+    ~IWeightEdge() override {}
 };
 
 }  // namespace graph
