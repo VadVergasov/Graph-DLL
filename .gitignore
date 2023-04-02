@@ -4,9 +4,6 @@
 !/.gitignore
 !/Diagrams.drawio
 
-!/src
-!/src/graph
-
 !/include
 
 !/include/graph
@@ -19,3 +16,8 @@
 
 !/include/utils
 !/include/utils/edge_hasher.h
+
+!/src
+!/src/graph
+!/src/graph/empty_vertex.cpp
+!/src/graph/vertex.cpp
