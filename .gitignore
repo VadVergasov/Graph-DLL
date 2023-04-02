@@ -19,3 +19,8 @@
 !/src/graph
 !/src/graph/empty_vertex.cpp
 !/src/graph/vertex.cpp
+!/src/graph/iedge.cpp
+!/src/graph/ivertex.cpp
+
+!/src/utils
+!/src/utils/edge_hasher.cpp
