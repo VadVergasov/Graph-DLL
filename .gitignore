@@ -7,15 +7,18 @@
 !/include
 
 !/include/graph
+
 !/include/graph/empty_vertex.h
 !/include/graph/vertex.h
 !/include/graph/ivertex.h
 !/include/graph/iedge.h
 
 !/include/utils
+
 !/include/utils/edge_hasher.h
 
 !/src
+
 !/src/graph
 !/src/graph/empty_vertex.cpp
 !/src/graph/vertex.cpp
@@ -23,4 +26,5 @@
 !/src/graph/ivertex.cpp
 
 !/src/utils
+
 !/src/utils/edge_hasher.cpp
