@@ -14,6 +14,7 @@
 !/include/graph/ivertex.h
 !/include/graph/iweightedge.h
 !/include/graph/vertex.h
+!/include/graph/weightbidirectionaledge.h
 
 !/include/utils
 
@@ -28,6 +29,7 @@
 !/src/graph/ivertex.cpp
 !/src/graph/iweightedge.cpp
 !/src/graph/vertex.cpp
+!/src/graph/weightbidirectionaledge.cpp
 
 !/src/utils
 

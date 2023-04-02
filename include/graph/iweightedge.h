@@ -4,7 +4,7 @@
 
 namespace graph {
 
-class IWeightEdge : IEdge {
+class IWeightEdge : public virtual IEdge {
    public:
     virtual void SetValue(std::any) = 0;
 

@@ -4,7 +4,7 @@
 
 namespace graph {
 
-class IBidirectionalEdge : IEdge {
+class IBidirectionalEdge : public virtual IEdge {
    public:
     virtual IVertex& prev() = 0;
 };
