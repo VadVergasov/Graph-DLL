@@ -12,6 +12,7 @@
 !/include/graph/empty_vertex.h
 !/include/graph/ibidirectionaledge.h
 !/include/graph/iedge.h
+!/include/graph/igraph.h
 !/include/graph/ivertex.h
 !/include/graph/iweightedge.h
 !/include/graph/vertex.h
@@ -28,6 +29,7 @@
 !/src/graph/empty_vertex.cpp
 !/src/graph/ibidirectionaledge.cpp
 !/src/graph/iedge.cpp
+!/src/graph/igraph.cpp
 !/src/graph/ivertex.cpp
 !/src/graph/iweightedge.cpp
 !/src/graph/vertex.cpp
