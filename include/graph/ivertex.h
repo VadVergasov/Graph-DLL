@@ -5,8 +5,15 @@
 namespace graph {
 
 class IVertex {
+   protected:
+    size_t id;
+
    public:
-    IVertex() = default;
+    IVertex() = delete;
+
+    IVertex(size_t id) : id(id) {}
+
+    IVertex(const IVertex& other) : id(other.id) {}
 
     virtual std::any GetValue() const = 0;
 

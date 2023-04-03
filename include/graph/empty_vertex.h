@@ -8,7 +8,7 @@ class Vertex : IVertex {
    public:
     Vertex() = default;
 
-    Vertex(const Vertex& other) {}
+    Vertex(const Vertex& other) : IVertex(other) {}
 
     std::any GetValue() const override { return std::any{nullptr}; }
 };
