@@ -15,11 +15,11 @@ class OrientedGraph : IGraph {
 
     size_t EdgeCount() const override { return EdgeList_.size(); }
 
-    void AddEdge(const IVertex& start, const IVertex& end) override {}
+    void AddEdge(const IVertex& start, const IVertex& end) override;
 
-    void AddEdge(const IEdge& edge) override {}
+    void AddEdge(const IEdge& edge) override;
 
-    void RemoveEdge(const IEdge& edge) override {}
+    void RemoveEdge(const IEdge& edge) override;
 };
 
 };  // namespace graph
