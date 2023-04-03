@@ -17,6 +17,8 @@ class IVertex {
 
     virtual std::any GetValue() const = 0;
 
+    size_t GetId() const { return id; }
+
     virtual ~IVertex() = 0;
 
     friend class EdgeHasher;
