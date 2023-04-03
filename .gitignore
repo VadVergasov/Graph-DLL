@@ -6,6 +6,10 @@
 
 !/include
 
+!/include/algorithms
+
+!/include/algorithms/dijkstraclassic.h
+
 !/include/graph
 
 !/include/graph/bidirectionaledge.h
@@ -25,6 +29,10 @@
 !/include/utils/edge_hasher.h
 
 !/src
+
+!/src/algorithms
+
+!/src/algorithms/dijkstraclassic.cpp
 
 !/src/graph
 
