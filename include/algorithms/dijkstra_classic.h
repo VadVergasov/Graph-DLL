@@ -1,3 +1,9 @@
+/*
+DijkstraClassic  Copyright (C) 2023  VadVergasov
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
+This is free software, and you are welcome to redistribute it
+under certain conditions; type `show c' for details.
+*/
 #pragma once
 
 #include <any>
@@ -24,6 +30,10 @@ class DijkstraClassic {
         std::function<std::any(const std::any&, const std::any&)> sum,
         const std::any& maxValue, const std::any& minValue)
         : less(less), sum(sum), MaxValue_(maxValue), MinValue_(minValue) {}
+
+    DijkstraClassic(const DijkstraClassic& other) = default;
+
+    DijkstraClassic(DijkstraClassic&& other) = default;
 
     const std::vector<std::any>& GetDistance(const IGraph&, const IVertex&);
 };
