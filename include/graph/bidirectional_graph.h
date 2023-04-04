@@ -7,7 +7,7 @@ under certain conditions; type `show c' for details.
 #include <memory>
 #include <vector>
 
-#include "ibidirectionaledge.h"
+#include "ibidirectional_edge.h"
 #include "igraph.h"
 
 namespace graph {

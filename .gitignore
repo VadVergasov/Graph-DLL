@@ -10,21 +10,21 @@
 
 !/include/algorithms
 
-!/include/algorithms/dijkstraclassic.h
+!/include/algorithms/dijkstra_classic.h
 
 !/include/graph
 
-!/include/graph/bidirectionaledge.h
-!/include/graph/bidirectionalgraph.h
+!/include/graph/bidirectional_edge.h
+!/include/graph/bidirectional_graph.h
 !/include/graph/empty_vertex.h
-!/include/graph/ibidirectionaledge.h
+!/include/graph/ibidirectional_edge.h
 !/include/graph/iedge.h
 !/include/graph/igraph.h
 !/include/graph/ivertex.h
-!/include/graph/iweightedge.h
-!/include/graph/orientedgraph.h
+!/include/graph/iweight_edge.h
+!/include/graph/oriented_graph.h
 !/include/graph/vertex.h
-!/include/graph/weightbidirectionaledge.h
+!/include/graph/weight_bidirectional_edge.h
 
 !/include/utils
 
@@ -34,21 +34,21 @@
 
 !/src/algorithms
 
-!/src/algorithms/dijkstraclassic.cpp
+!/src/algorithms/dijkstra_classic.cpp
 
 !/src/graph
 
-!/src/graph/bidirectionaledge.cpp
-!/src/graph/bidirectionalgraph.cpp
+!/src/graph/bidirectional_edge.cpp
+!/src/graph/bidirectional_graph.cpp
 !/src/graph/empty_vertex.cpp
-!/src/graph/ibidirectionaledge.cpp
+!/src/graph/ibidirectional_edge.cpp
 !/src/graph/iedge.cpp
 !/src/graph/igraph.cpp
 !/src/graph/ivertex.cpp
-!/src/graph/iweightedge.cpp
-!/src/graph/orientedgraph.cpp
+!/src/graph/iweight_edge.cpp
+!/src/graph/oriented_graph.cpp
 !/src/graph/vertex.cpp
-!/src/graph/weightbidirectionaledge.cpp
+!/src/graph/weight_bidirectional_edge.cpp
 
 !/src/utils
 

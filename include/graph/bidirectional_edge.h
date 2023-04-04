@@ -6,7 +6,7 @@ under certain conditions; type `show c' for details.
 */
 #pragma once
 
-#include "ibidirectionaledge.h"
+#include "ibidirectional_edge.h"
 
 namespace graph {
 
