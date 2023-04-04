@@ -1,8 +1,9 @@
 *
 
 !/CMakeLists.txt
-!/.gitignore
 !/Diagrams.drawio
+!/README.md
+!/.gitignore
 
 !/include
 
