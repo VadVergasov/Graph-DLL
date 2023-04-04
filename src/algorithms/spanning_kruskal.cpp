@@ -5,3 +5,17 @@ This is free software, and you are welcome to redistribute it
 under certain conditions; type `show c' for details.
 */
 #include "algorithms/spanning_kruskal.h"
+
+namespace graph {
+
+BidirectionalGraph SpanningKruskal::GetSpanning() {
+    BidirectionalGraph result;
+    return result;
+}
+
+BidirectionalGraph SpanningKruskalDSU::GetSpanning() {
+    BidirectionalGraph result;
+    return result;
+}
+
+};  // namespace graph

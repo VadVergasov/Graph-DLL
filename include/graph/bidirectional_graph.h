@@ -18,9 +18,17 @@ class BidirectionalGraph : public IGraph {
     std::vector<std::shared_ptr<IBidirectionalEdge>> EdgeList_;
 
    public:
+    BidirectionalGraph() = default;
+
     size_t VertexCount() const override { return VertexList_.size(); }
 
     size_t EdgeCount() const override { return EdgeList_.size(); }
+
+    void AddEdge(const IVertex&, const IVertex&) override;
+
+    void AddEdge(const IEdge&) override;
+
+    void RemoveEdge(const IEdge&) override;
 };
 
 };  // namespace graph

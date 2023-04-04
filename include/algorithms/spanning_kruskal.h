@@ -6,12 +6,18 @@ under certain conditions; type `show c' for details.
 */
 #pragma once
 
-#include "graph/igraph.h"
+#include "graph/bidirectional_graph.h"
 
-namespace graph{
+namespace graph {
 
 class SpanningKruskal {
-
+   public:
+    virtual BidirectionalGraph GetSpanning();
 };
 
+class SpanningKruskalDSU : public SpanningKruskal {
+   public:
+    BidirectionalGraph GetSpanning() override;
 };
+
+};  // namespace graph
