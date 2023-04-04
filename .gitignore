@@ -11,6 +11,7 @@
 !/include/algorithms
 
 !/include/algorithms/dijkstra_classic.h
+!/include/algorithms/dijkstra_sparse.h
 
 !/include/graph
 
@@ -35,6 +36,7 @@
 !/src/algorithms
 
 !/src/algorithms/dijkstra_classic.cpp
+!/src/algorithms/dijkstra_sparse.cpp
 
 !/src/graph
 
