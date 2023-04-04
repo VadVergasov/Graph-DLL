@@ -26,6 +26,7 @@
 !/include/graph/oriented_graph.h
 !/include/graph/vertex.h
 !/include/graph/weight_bidirectional_edge.h
+!/include/graph/weight_edge.h
 
 !/include/utils
 
@@ -51,6 +52,7 @@
 !/src/graph/oriented_graph.cpp
 !/src/graph/vertex.cpp
 !/src/graph/weight_bidirectional_edge.cpp
+!/src/graph/weight_edge.cpp
 
 !/src/utils
 
