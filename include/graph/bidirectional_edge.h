@@ -10,7 +10,7 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-class BidirectionalEdge : IBidirectionalEdge {
+class BidirectionalEdge : public IBidirectionalEdge {
    protected:
     IVertex& start;
     IVertex& end;

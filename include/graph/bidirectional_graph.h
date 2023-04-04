@@ -12,7 +12,7 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-class BidirectionalGraph : IGraph {
+class BidirectionalGraph : public IGraph {
    protected:
     std::vector<std::shared_ptr<IVertex>> VertexList_;
     std::vector<std::shared_ptr<IBidirectionalEdge>> EdgeList_;

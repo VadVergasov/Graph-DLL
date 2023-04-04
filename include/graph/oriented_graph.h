@@ -11,7 +11,7 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-class OrientedGraph : IGraph {
+class OrientedGraph : public IGraph {
    protected:
     std::vector<std::shared_ptr<IVertex>> VertexList_;
     std::vector<std::shared_ptr<IEdge>> EdgeList_;

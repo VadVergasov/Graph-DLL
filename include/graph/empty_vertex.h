@@ -10,7 +10,7 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-class Vertex : IVertex {
+class Vertex : public IVertex {
    public:
     Vertex() = default;
 

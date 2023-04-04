@@ -10,6 +10,9 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-class DijkstraSparse : DijkstraClassic {};
+class DijkstraSparse : public DijkstraClassic {
+   public:
+    const std::vector<std::any>& GetDistance(const IGraph&, const IVertex&);
+};
 
 };  // namespace graph

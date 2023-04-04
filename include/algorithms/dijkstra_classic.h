@@ -35,7 +35,8 @@ class DijkstraClassic {
 
     DijkstraClassic(DijkstraClassic&& other) = default;
 
-    const std::vector<std::any>& GetDistance(const IGraph&, const IVertex&);
+    virtual const std::vector<std::any>& GetDistance(const IGraph&,
+                                                     const IVertex&);
 };
 
 }  // namespace graph

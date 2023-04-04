@@ -11,7 +11,7 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-class WeightBidirectionalEdge : IWeightEdge, IBidirectionalEdge {
+class WeightBidirectionalEdge : public IWeightEdge, public IBidirectionalEdge {
    protected:
     std::any value;
 
