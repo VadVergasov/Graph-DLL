@@ -12,7 +12,7 @@ namespace graph {
 
 class DijkstraSparse : public DijkstraClassic {
    public:
-    const std::vector<std::any>& GetDistance(const IGraph&, const IVertex&);
+    const std::vector<std::any>& GetDistance(const IGraph&, const IVertex&) override;
 };
 
 };  // namespace graph
