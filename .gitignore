@@ -12,6 +12,7 @@
 
 !/include/algorithms/dijkstra_classic.h
 !/include/algorithms/dijkstra_sparse.h
+!/include/algorithms/spanning_kruskal.h
 
 !/include/graph
 
@@ -38,6 +39,7 @@
 
 !/src/algorithms/dijkstra_classic.cpp
 !/src/algorithms/dijkstra_sparse.cpp
+!/src/algorithms/spanning_kruskal.cpp
 
 !/src/graph
 
