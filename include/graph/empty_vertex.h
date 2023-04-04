@@ -10,11 +10,11 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-class Vertex : public IVertex {
+class EmptyVertex : public IVertex {
    public:
-    Vertex() = default;
+    EmptyVertex() = default;
 
-    Vertex(const Vertex& other) : IVertex(other) {}
+    EmptyVertex(const EmptyVertex& other) : IVertex(other) {}
 
     std::any GetValue() const override { return std::any{nullptr}; }
 };
