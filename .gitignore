@@ -18,6 +18,7 @@
 
 !/include/graph/bidirectional_edge.h
 !/include/graph/bidirectional_graph.h
+!/include/graph/edge.h
 !/include/graph/empty_vertex.h
 !/include/graph/ibidirectional_edge.h
 !/include/graph/iedge.h
@@ -31,7 +32,7 @@
 
 !/include/utils
 
-!/include/utils/edge_hasher.h
+!/include/utils/vertex_hasher.h
 
 !/src
 
@@ -45,6 +46,7 @@
 
 !/src/graph/bidirectional_edge.cpp
 !/src/graph/bidirectional_graph.cpp
+!/src/graph/edge.cpp
 !/src/graph/empty_vertex.cpp
 !/src/graph/ibidirectional_edge.cpp
 !/src/graph/iedge.cpp
@@ -58,4 +60,4 @@
 
 !/src/utils
 
-!/src/utils/edge_hasher.cpp
+!/src/utils/vertex_hasher.cpp

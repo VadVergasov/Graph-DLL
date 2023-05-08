@@ -7,6 +7,7 @@ under certain conditions; type `show c' for details.
 #pragma once
 
 #include <any>
+#include <memory>
 #include <vector>
 
 #include "iedge.h"
@@ -16,19 +17,35 @@ namespace graph {
 class IEdge;
 
 class IVertex {
+   private:
+    inline static size_t new_id = 0;
+
+   protected:
+    const size_t id;
+    std::vector<std::shared_ptr<IEdge>> edges;
+
    public:
-    virtual size_t GetId() const = 0;
+    IVertex(const std::vector<std::shared_ptr<IEdge>>& edges = {})
+        : id(new_id++), edges(edges) {}
 
-    virtual const std::vector<IEdge*>& GetEdges() const = 0;
+    IVertex(const IVertex& other) : id(other.id), edges(other.edges) {}
 
-    std::vector<IEdge*>& GetEdges() {
-        return const_cast<std::vector<IEdge*>&>(
+    const std::vector<std::shared_ptr<IEdge>>& GetEdges() const {
+        return edges;
+    }
+
+    std::vector<std::shared_ptr<IEdge>>& GetEdges() {
+        return const_cast<std::vector<std::shared_ptr<IEdge>>&>(
             static_cast<const IVertex&>(*this).GetEdges());
     }
 
-    virtual ~IVertex() = 0;
+    virtual ~IVertex() {}
 
-    friend class EdgeHasher;
+    IEdge& AddNeighbor(const std::shared_ptr<IEdge>& edge) {
+        return *GetEdges().emplace_back(edge);
+    }
+
+    size_t GetId() const { return id; }
 };
 
 }  // namespace graph

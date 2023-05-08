@@ -13,12 +13,17 @@ namespace graph {
 class IVertex;
 
 class IEdge {
-    friend class EdgeHasher;
+   protected:
+    std::weak_ptr<IVertex> end;
 
    public:
-    virtual IVertex& next() const = 0;
+    IEdge(const decltype(end)& end) : end(end) {}
+
+    IEdge(const std::shared_ptr<IVertex>& end) : end(end) {}
 
     virtual ~IEdge() {}
+
+    virtual IVertex& Next() const { return *end.lock(); }
 };
 
 }  // namespace graph

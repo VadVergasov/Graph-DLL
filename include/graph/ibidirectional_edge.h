@@ -11,8 +11,20 @@ under certain conditions; type `show c' for details.
 namespace graph {
 
 class IBidirectionalEdge : public virtual IEdge {
+   protected:
+    std::weak_ptr<IVertex> start;
+
    public:
-    virtual IVertex& prev() const = 0;
+    IBidirectionalEdge(const decltype(start)& start, const decltype(end)& end)
+        : start(start), IEdge(end) {}
+
+    IBidirectionalEdge(const std::shared_ptr<IVertex>& start,
+                       const std::shared_ptr<IVertex>& end)
+        : start(start), IEdge(end) {}
+
+    ~IBidirectionalEdge() override {}
+
+    virtual IVertex& Start() const { return *start.lock(); }
 };
 
 }  // namespace graph

@@ -10,15 +10,6 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-class BidirectionalEdge : public IBidirectionalEdge {
-   protected:
-    IVertex& start;
-    IVertex& end;
-
-   public:
-    IVertex& next() const override { return end; }
-
-    IVertex& prev() const override { return start; }
-};
+class BidirectionalEdge final : public IBidirectionalEdge {};
 
 }  // namespace graph

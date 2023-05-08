@@ -11,11 +11,10 @@ under certain conditions; type `show c' for details.
 #include "../graph/iedge.h"
 
 namespace graph {
-class EdgeHasher {
-    // TODO
-    // unsigned long long operator()(IEdge& edge) {
-    //     return std::hash<unsigned long long>()(std::any_cast<unsigned long long>(edge.start.value));
-    // }
+class VertexHasher {
+    size_t operator()(IVertex& edge) {
+        return std::hash<size_t>()(edge.GetId());
+    }
 };
 
 }  // namespace graph

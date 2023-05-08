@@ -11,14 +11,20 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-class WeightBidirectionalEdge : public IWeightEdge, public IBidirectionalEdge {
-   protected:
-    std::any value;
-
+class WeightBidirectionalEdge final : public IWeightEdge,
+                                      public IBidirectionalEdge {
    public:
-    void SetValue(std::any value) override { this->value = value; }
+    WeightBidirectionalEdge(const decltype(start)& start,
+                            const decltype(end)& end,
+                            const decltype(value)& value)
+        : IBidirectionalEdge(start, end), IWeightEdge(end, value), IEdge(end) {}
 
-    std::any GetValue() const override { return value; }
+    WeightBidirectionalEdge(const std::shared_ptr<IVertex>& start,
+                            const std::shared_ptr<IVertex>& end,
+                            const decltype(value)& value)
+        : IBidirectionalEdge(start, end), IWeightEdge(end, value), IEdge(end) {}
+
+    ~WeightBidirectionalEdge() override {}
 };
 
 };  // namespace graph

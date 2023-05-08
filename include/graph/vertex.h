@@ -10,26 +10,21 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-class Vertex : IVertex {
+class Vertex final : IVertex {
    protected:
-    size_t id;
-    std::vector<IEdge*> edges;
     std::any value;
 
    public:
-    Vertex(size_t id, std::any value, const std::vector<IEdge*> edges = {})
-        : id(id), edges(edges), value(value) {}
+    Vertex(std::any value, const std::vector<std::shared_ptr<IEdge>> edges = {})
+        : IVertex(edges), value(value) {}
 
-    Vertex(const Vertex& other)
-        : id(other.id), edges(other.edges), value(other.value) {}
+    Vertex(const Vertex& other) : IVertex(other), value(other.value) {}
+
+    ~Vertex() override {}
 
     std::any GetValue() const { return value; }
 
     void SetValue(std::any value) { this->value = value; }
-
-    size_t GetId() const { return id; }
-
-    const std::vector<IEdge*>& GetEdges() const override { return edges; }
 };
 
 }  // namespace graph

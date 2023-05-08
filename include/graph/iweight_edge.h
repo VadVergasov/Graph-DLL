@@ -11,12 +11,21 @@ under certain conditions; type `show c' for details.
 namespace graph {
 
 class IWeightEdge : public virtual IEdge {
-   public:
-    virtual void SetValue(std::any) = 0;
+   protected:
+    std::any value;
 
-    virtual std::any GetValue() const = 0;
+   public:
+    IWeightEdge(const decltype(end)& end, std::any value)
+        : IEdge(end), value(value) {}
+
+    IWeightEdge(const std::shared_ptr<IVertex>& end, std::any value)
+        : IEdge(end), value(value) {}
 
     ~IWeightEdge() override {}
+
+    virtual void SetValue(std::any value) { this->value = value; };
+
+    virtual std::any GetValue() const { return value; };
 };
 
 }  // namespace graph

@@ -10,18 +10,12 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-class EmptyVertex : public IVertex {
-   protected:
-    size_t id;
-    std::vector<IEdge*> edges;
-
+class EmptyVertex final : public IVertex {
    public:
-    EmptyVertex(size_t id, const std::vector<IEdge*> edges = {})
-        : id(id), edges(edges) {}
+    EmptyVertex(const std::vector<std::shared_ptr<IEdge>> edges = {})
+        : IVertex(edges) {}
 
-    EmptyVertex(const EmptyVertex& other) : id(other.id), edges(other.edges) {}
-
-    const std::vector<IEdge*>& GetEdges() const override { return edges; }
+    EmptyVertex(const EmptyVertex& other) : IVertex(other) {}
 };
 
 }  // namespace graph
