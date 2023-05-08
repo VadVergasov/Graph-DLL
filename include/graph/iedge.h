@@ -14,16 +14,16 @@ class IVertex;
 
 class IEdge {
    protected:
-    std::weak_ptr<IVertex> end;
+    std::weak_ptr<IVertex> end_;
 
    public:
-    IEdge(const decltype(end)& end) : end(end) {}
+    IEdge(const decltype(end_)& end) : end_(end) {}
 
-    IEdge(const std::shared_ptr<IVertex>& end) : end(end) {}
+    IEdge(const std::shared_ptr<IVertex>& end) : end_(end) {}
 
     virtual ~IEdge() {}
 
-    virtual IVertex& Next() const { return *end.lock(); }
+    virtual IVertex& Next() const { return *end_.lock(); }
 };
 
 }  // namespace graph

@@ -14,14 +14,14 @@ namespace graph {
 class WeightBidirectionalEdge final : public IWeightEdge,
                                       public IBidirectionalEdge {
    public:
-    WeightBidirectionalEdge(const decltype(start)& start,
-                            const decltype(end)& end,
-                            const decltype(value)& value)
+    WeightBidirectionalEdge(const decltype(start_)& start,
+                            const decltype(end_)& end,
+                            const decltype(value_)& value)
         : IBidirectionalEdge(start, end), IWeightEdge(end, value), IEdge(end) {}
 
     WeightBidirectionalEdge(const std::shared_ptr<IVertex>& start,
                             const std::shared_ptr<IVertex>& end,
-                            const decltype(value)& value)
+                            const decltype(value_)& value)
         : IBidirectionalEdge(start, end), IWeightEdge(end, value), IEdge(end) {}
 
     ~WeightBidirectionalEdge() override {}

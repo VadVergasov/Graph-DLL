@@ -12,19 +12,19 @@ namespace graph {
 
 class IBidirectionalEdge : public virtual IEdge {
    protected:
-    std::weak_ptr<IVertex> start;
+    std::weak_ptr<IVertex> start_;
 
    public:
-    IBidirectionalEdge(const decltype(start)& start, const decltype(end)& end)
-        : start(start), IEdge(end) {}
+    IBidirectionalEdge(const decltype(start_)& start, const decltype(end)& end)
+        : start_(start), IEdge(end) {}
 
     IBidirectionalEdge(const std::shared_ptr<IVertex>& start,
                        const std::shared_ptr<IVertex>& end)
-        : start(start), IEdge(end) {}
+        : start_(start), IEdge(end) {}
 
     ~IBidirectionalEdge() override {}
 
-    virtual IVertex& Start() const { return *start.lock(); }
+    virtual IVertex& Start() const { return *start_.lock(); }
 };
 
 }  // namespace graph

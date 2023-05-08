@@ -12,20 +12,20 @@ namespace graph {
 
 class IWeightEdge : public virtual IEdge {
    protected:
-    std::any value;
+    std::any value_;
 
    public:
-    IWeightEdge(const decltype(end)& end, std::any value)
-        : IEdge(end), value(value) {}
+    IWeightEdge(const decltype(end_)& end, std::any value)
+        : IEdge(end), value_(value) {}
 
     IWeightEdge(const std::shared_ptr<IVertex>& end, std::any value)
-        : IEdge(end), value(value) {}
+        : IEdge(end), value_(value) {}
 
     ~IWeightEdge() override {}
 
-    virtual void SetValue(std::any value) { this->value = value; };
+    virtual void SetValue(std::any value) { value_ = value; };
 
-    virtual std::any GetValue() const { return value; };
+    virtual std::any GetValue() const { return value_; };
 };
 
 }  // namespace graph

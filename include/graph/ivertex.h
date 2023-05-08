@@ -18,20 +18,20 @@ class IEdge;
 
 class IVertex {
    private:
-    inline static size_t new_id = 0;
+    inline static size_t newId = 0;
 
    protected:
-    const size_t id;
-    std::vector<std::shared_ptr<IEdge>> edges;
+    const size_t id_;
+    std::vector<std::shared_ptr<IEdge>> edges_;
 
    public:
     IVertex(const std::vector<std::shared_ptr<IEdge>>& edges = {})
-        : id(new_id++), edges(edges) {}
+        : id_(newId++), edges_(edges) {}
 
-    IVertex(const IVertex& other) : id(other.id), edges(other.edges) {}
+    IVertex(const IVertex& other) : id_(other.id_), edges_(other.edges_) {}
 
     const std::vector<std::shared_ptr<IEdge>>& GetEdges() const {
-        return edges;
+        return edges_;
     }
 
     std::vector<std::shared_ptr<IEdge>>& GetEdges() {
@@ -45,7 +45,7 @@ class IVertex {
         return *GetEdges().emplace_back(edge);
     }
 
-    size_t GetId() const { return id; }
+    size_t GetId() const { return id_; }
 };
 
 }  // namespace graph
