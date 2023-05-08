@@ -7,23 +7,24 @@ under certain conditions; type `show c' for details.
 #pragma once
 
 #include <any>
+#include <vector>
+
+#include "iedge.h"
 
 namespace graph {
 
+class IEdge;
+
 class IVertex {
-   protected:
-    size_t id;
-
    public:
-    IVertex() = delete;
+    virtual size_t GetId() const = 0;
 
-    IVertex(size_t id) : id(id) {}
+    virtual const std::vector<IEdge*>& GetEdges() const = 0;
 
-    IVertex(const IVertex& other) : id(other.id) {}
-
-    virtual std::any GetValue() const = 0;
-
-    size_t GetId() const { return id; }
+    std::vector<IEdge*>& GetEdges() {
+        return const_cast<std::vector<IEdge*>&>(
+            static_cast<const IVertex&>(*this).GetEdges());
+    }
 
     virtual ~IVertex() = 0;
 

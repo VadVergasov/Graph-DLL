@@ -10,6 +10,8 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
+class IVertex;
+
 class IEdge {
     friend class EdgeHasher;
 

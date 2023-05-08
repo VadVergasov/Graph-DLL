@@ -11,12 +11,17 @@ under certain conditions; type `show c' for details.
 namespace graph {
 
 class EmptyVertex : public IVertex {
+   protected:
+    size_t id;
+    std::vector<IEdge*> edges;
+
    public:
-    EmptyVertex() = default;
+    EmptyVertex(size_t id, const std::vector<IEdge*> edges = {})
+        : id(id), edges(edges) {}
 
-    EmptyVertex(const EmptyVertex& other) : IVertex(other) {}
+    EmptyVertex(const EmptyVertex& other) : id(other.id), edges(other.edges) {}
 
-    std::any GetValue() const override { return std::any{nullptr}; }
+    const std::vector<IEdge*>& GetEdges() const override { return edges; }
 };
 
 }  // namespace graph
