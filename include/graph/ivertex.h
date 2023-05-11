@@ -45,6 +45,10 @@ class IVertex {
         return *GetEdges().emplace_back(edge);
     }
 
+    void RemoveNeighbor(const IVertex& vertex) {
+        for(const auto&)
+    }
+
     size_t GetId() const { return id_; }
 };
 

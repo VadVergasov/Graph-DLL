@@ -15,7 +15,7 @@ class IBidirectionalEdge : public virtual IEdge {
     std::weak_ptr<IVertex> start_;
 
    public:
-    IBidirectionalEdge(const decltype(start_)& start, const decltype(end)& end)
+    IBidirectionalEdge(const decltype(start_)& start, const decltype(end_)& end)
         : start_(start), IEdge(end) {}
 
     IBidirectionalEdge(const std::shared_ptr<IVertex>& start,
@@ -24,7 +24,7 @@ class IBidirectionalEdge : public virtual IEdge {
 
     ~IBidirectionalEdge() override {}
 
-    virtual IVertex& Start() const { return *start_.lock(); }
+    IVertex& Start() const { return *start_.lock(); }
 };
 
 }  // namespace graph

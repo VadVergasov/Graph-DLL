@@ -5,16 +5,18 @@ This is free software, and you are welcome to redistribute it
 under certain conditions; type `show c' for details.
 */
 #include <memory>
+#include <unordered_set>
 #include <vector>
 
 #include "ibidirectional_edge.h"
 #include "igraph.h"
+#include "utils/vertex_hasher.h"
 
 namespace graph {
 
 class BidirectionalGraph : public IGraph {
    protected:
-    std::vector<std::shared_ptr<IVertex>> VertexList_;
+    std::unordered_set<std::shared_ptr<IVertex>, VertexHasher> VertexList_;
     std::vector<std::shared_ptr<IBidirectionalEdge>> EdgeList_;
 
    public:

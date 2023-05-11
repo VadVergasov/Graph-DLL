@@ -6,14 +6,13 @@ under certain conditions; type `show c' for details.
 */
 #pragma once
 
-#include <functional>
-
 #include "../graph/iedge.h"
 
 namespace graph {
 class VertexHasher {
-    size_t operator()(IVertex& edge) {
-        return std::hash<size_t>()(edge.GetId());
+   public:
+    size_t operator()(const std::shared_ptr<IVertex>& edge) const {
+        return std::hash<size_t>()(edge->GetId());
     }
 };
 

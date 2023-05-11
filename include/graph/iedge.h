@@ -23,7 +23,7 @@ class IEdge {
 
     virtual ~IEdge() {}
 
-    virtual IVertex& Next() const { return *end_.lock(); }
+    IVertex& End() const { return *end_.lock(); }
 };
 
 }  // namespace graph
