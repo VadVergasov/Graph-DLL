@@ -64,10 +64,9 @@ class IVertex {
 
     size_t GetId() const { return id_; }
 
-    friend static void swap(IVertex& lhs, IVertex& rhs) {
-        IVertex tmp = std::move(lhs);
-        lhs = std::move(rhs);
-        rhs = std::move(tmp);
+    friend void swap(IVertex& lhs, IVertex& rhs) {
+        std::swap(lhs.id_, rhs.id_);
+        std::swap(lhs.edges_, rhs.edges_);
     }
 };
 
