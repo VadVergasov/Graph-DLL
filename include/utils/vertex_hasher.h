@@ -11,8 +11,8 @@ under certain conditions; type `show c' for details.
 namespace graph {
 class VertexHasher {
    public:
-    size_t operator()(const std::shared_ptr<IVertex>& edge) const {
-        return std::hash<size_t>()(edge->GetId());
+    size_t operator()(const std::shared_ptr<IVertex>& vertex) const {
+        return std::hash<size_t>()(vertex->GetId());
     }
 };
 
