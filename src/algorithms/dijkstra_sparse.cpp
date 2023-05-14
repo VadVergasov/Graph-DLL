@@ -8,7 +8,7 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-const std::vector<std::any>& DijkstraSparse::GetDistance(const BidirectionalGraph&, const IVertex&) {
+const std::unordered_map<std::shared_ptr<IVertex>, std::any, VertexHasher>& DijkstraSparse::GetDistance(const BidirectionalGraph&, const IVertex&) {
     return Distances_;
 }
 

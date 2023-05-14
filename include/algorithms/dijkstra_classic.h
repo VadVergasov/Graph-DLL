@@ -8,9 +8,11 @@ under certain conditions; type `show c' for details.
 
 #include <any>
 #include <functional>
+#include <unordered_map>
 #include <vector>
 
 #include "graph/bidirectional_graph.h"
+#include "graph/weight_bidirectional_edge.h"
 
 namespace graph {
 
@@ -18,7 +20,7 @@ class DijkstraClassic {
    protected:
     std::any MaxValue_;
     std::any MinValue_;
-    std::vector<std::any> Distances_;
+    std::unordered_map<std::shared_ptr<IVertex>, std::any, VertexHasher> Distances_;
     std::function<bool(const std::any&, const std::any&)> less;
     std::function<std::any(const std::any&, const std::any&)> sum;
 
@@ -35,8 +37,8 @@ class DijkstraClassic {
 
     DijkstraClassic(DijkstraClassic&& other) = default;
 
-    virtual const std::vector<std::any>& GetDistance(const BidirectionalGraph&,
-                                                     const IVertex&);
+    virtual const std::unordered_map<std::shared_ptr<IVertex>, std::any, VertexHasher>& GetDistance(
+        const BidirectionalGraph&, const IVertex&);
 };
 
 }  // namespace graph

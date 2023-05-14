@@ -12,7 +12,7 @@ namespace graph {
 
 class DijkstraSparse : public DijkstraClassic {
    public:
-    const std::vector<std::any>& GetDistance(const BidirectionalGraph&, const IVertex&) override;
+    const std::unordered_map<std::shared_ptr<IVertex>, std::any, VertexHasher>& GetDistance(const BidirectionalGraph&, const IVertex&) override;
 };
 
 };  // namespace graph

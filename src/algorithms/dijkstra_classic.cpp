@@ -10,30 +10,42 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-const std::vector<std::any>& DijkstraClassic::GetDistance(
-    const BidirectionalGraph& graph, const IVertex& start) {
-    std::vector<bool> used(graph.VertexCount(), false);
-    Distances_.resize(graph.VertexCount(), MaxValue_);
-    Distances_[start.GetId()] = MinValue_;
+const std::unordered_map<std::shared_ptr<IVertex>, std::any, VertexHasher>&
+DijkstraClassic::GetDistance(const BidirectionalGraph& graph,
+                             const IVertex& start) {
+    std::unordered_map<std::shared_ptr<IVertex>, bool, VertexHasher> used(
+        graph.VertexCount());
+    Distances_.rehash(graph.VertexCount());
+    for (const auto& current : graph.GetVertexes()) {
+        Distances_[current] = MaxValue_;
+    }
+    Distances_[std::make_shared<IVertex>(start)] = MinValue_;
 
-    for (const auto& current : std::ranges::views::iota(static_cast<size_t>(0),
-                                                        graph.VertexCount())) {
-        long long next = -1;
-        for (const auto& j : std::ranges::views::iota(static_cast<size_t>(0),
-                                                      graph.VertexCount())) {
-            if (!used[j] &&
-                (next == -1 || less(Distances_[j], Distances_[next]))) {
-                next = j;
+    for (const auto& iteration : std::ranges::views::iota(
+             static_cast<size_t>(0), graph.VertexCount())) {
+        std::shared_ptr<IVertex> current = nullptr;
+        for (const auto& j : graph.GetVertexes()) {
+            if (!used[j] && (current == nullptr ||
+                             less(Distances_[j], Distances_[current]))) {
+                current = j;
             }
         }
-        if (!less(Distances_[next], MaxValue_) &&
-            !less(MaxValue_, Distances_[next])) {
+        if (!less(Distances_[current], MaxValue_) &&
+            !less(MaxValue_, Distances_[current])) {
             break;
         }
-        used[next] = true;
-        // for (const auto& j : std::ranges::views::iota(static_cast<size_t>(0),
-        //                                               graph.EdgeCount())) {
-        // }
+        used[current] = true;
+        for (const auto& j : current->GetEdges()) {
+            auto next = std::make_shared<IVertex>(
+                (j->End().GetId() == current->GetId())
+                    ? std::dynamic_pointer_cast<IBidirectionalEdge>(j)->Start()
+                    : j->End());
+            auto length = std::dynamic_pointer_cast<WeightBidirectionalEdge>(j)
+                              ->GetValue();
+            if (less(sum(Distances_[current], length), Distances_[next])) {
+                Distances_[next] = sum(Distances_[current], length);
+            }
+        }
     }
 
     return Distances_;
