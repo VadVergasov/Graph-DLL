@@ -19,6 +19,7 @@ void BidirectionalGraph::AddEdge(const IVertex& first, const IVertex& second) {
         std::make_shared<IBidirectionalEdge>(*firstVertex, *secondVertex);
     (*firstVertex)->AddNeighbor(edge);
     (*secondVertex)->AddNeighbor(edge);
+    EdgeList_.push_back(edge);
 }
 
 void BidirectionalGraph::AddEdge(const IEdge& edge) {
