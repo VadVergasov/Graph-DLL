@@ -16,6 +16,20 @@ class EmptyVertex final : public IVertex {
         : IVertex(edges) {}
 
     EmptyVertex(const EmptyVertex& other) : IVertex(other) {}
+
+    EmptyVertex(EmptyVertex&& other) : IVertex(std::move(other)) {}
+
+    ~EmptyVertex() override {}
+
+    EmptyVertex& operator=(const EmptyVertex& other) {
+        static_cast<IVertex>(*this) = other;
+        return *this;
+    }
+
+    EmptyVertex& operator=(EmptyVertex&& other) {
+        static_cast<IVertex>(*this) = std::move(other);
+        return *this;
+    }
 };
 
 }  // namespace graph

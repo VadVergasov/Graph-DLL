@@ -22,6 +22,18 @@ class Vertex final : IVertex {
 
     ~Vertex() override {}
 
+    Vertex& operator=(const Vertex& other) {
+        static_cast<IVertex>(*this) = other;
+        value = other.value;
+        return *this;
+    }
+
+    Vertex& operator=(Vertex&& other) {
+        static_cast<IVertex>(*this) = std::move(other);
+        value = std::move(other.value);
+        return *this;
+    }
+
     std::any GetValue() const { return value; }
 
     void SetValue(std::any value) { this->value = value; }

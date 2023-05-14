@@ -21,7 +21,7 @@ class IVertex {
     inline static size_t newId = 0;
 
    protected:
-    const size_t id_;
+    size_t id_;
     std::vector<std::shared_ptr<IEdge>> edges_;
 
    public:
@@ -29,6 +29,21 @@ class IVertex {
         : id_(newId++), edges_(edges) {}
 
     IVertex(const IVertex& other) : id_(other.id_), edges_(other.edges_) {}
+
+    IVertex(IVertex&& other)
+        : id_(std::move(other.id_)), edges_(std::move(other.edges_)) {}
+
+    IVertex& operator=(const IVertex& other) {
+        id_ = other.id_;
+        edges_ = other.edges_;
+        return *this;
+    }
+
+    IVertex& operator=(IVertex&& other) {
+        id_ = std::move(other.id_);
+        edges_ = std::move(other.edges_);
+        return *this;
+    }
 
     const std::vector<std::shared_ptr<IEdge>>& GetEdges() const {
         return edges_;
@@ -48,6 +63,12 @@ class IVertex {
     void RemoveNeighbor(const IVertex& vertex);
 
     size_t GetId() const { return id_; }
+
+    friend static void swap(IVertex& lhs, IVertex& rhs) {
+        IVertex tmp = std::move(lhs);
+        lhs = std::move(rhs);
+        rhs = std::move(tmp);
+    }
 };
 
 }  // namespace graph
