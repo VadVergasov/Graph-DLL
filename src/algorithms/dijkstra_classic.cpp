@@ -11,7 +11,7 @@ under certain conditions; type `show c' for details.
 namespace graph {
 
 const std::vector<std::any>& DijkstraClassic::GetDistance(
-    const IGraph& graph, const IVertex& start) {
+    const BidirectionalGraph& graph, const IVertex& start) {
     std::vector<bool> used(graph.VertexCount(), false);
     Distances_.resize(graph.VertexCount(), MaxValue_);
     Distances_[start.GetId()] = MinValue_;

@@ -10,7 +10,7 @@ under certain conditions; type `show c' for details.
 #include <functional>
 #include <vector>
 
-#include "graph/igraph.h"
+#include "graph/bidirectional_graph.h"
 
 namespace graph {
 
@@ -35,7 +35,7 @@ class DijkstraClassic {
 
     DijkstraClassic(DijkstraClassic&& other) = default;
 
-    virtual const std::vector<std::any>& GetDistance(const IGraph&,
+    virtual const std::vector<std::any>& GetDistance(const BidirectionalGraph&,
                                                      const IVertex&);
 };
 
