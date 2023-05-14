@@ -4,6 +4,8 @@ This program comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
 This is free software, and you are welcome to redistribute it
 under certain conditions; type `show c' for details.
 */
+#pragma once
+
 #include <memory>
 #include <vector>
 
@@ -13,7 +15,6 @@ namespace graph {
 
 class OrientedGraph : public IGraph {
    protected:
-    std::vector<std::shared_ptr<IVertex>> VertexList_;
     std::vector<std::shared_ptr<IEdge>> EdgeList_;
 
    public:

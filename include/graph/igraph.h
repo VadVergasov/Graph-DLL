@@ -6,12 +6,18 @@ under certain conditions; type `show c' for details.
 */
 #pragma once
 
+#include <unordered_set>
+
 #include "iedge.h"
 #include "ivertex.h"
+#include "utils/vertex_hasher.h"
 
 namespace graph {
 
 class IGraph {
+   protected:
+    std::unordered_set<std::shared_ptr<IVertex>, VertexHasher> VertexList_;
+
    public:
     virtual size_t VertexCount() const = 0;
 
@@ -22,6 +28,17 @@ class IGraph {
     virtual void AddEdge(const IEdge&) = 0;
 
     virtual void RemoveEdge(const IEdge&) = 0;
+
+    const std::unordered_set<std::shared_ptr<IVertex>, VertexHasher>&
+    GetVertexes() const {
+        return VertexList_;
+    }
+
+    std::unordered_set<std::shared_ptr<IVertex>, VertexHasher>& GetVertexes() {
+        return const_cast<
+            std::unordered_set<std::shared_ptr<IVertex>, VertexHasher>&>(
+            static_cast<const IGraph&>(*this).GetVertexes());
+    }
 };
 
 };  // namespace graph
