@@ -10,11 +10,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 file(GLOB_RECURSE Source-Files include/*.h src/*.h src/*.cpp)
 
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
 add_library(Graph-DLL SHARED ${Source-Files})
 
 set_target_properties(Graph-DLL PROPERTIES VERSION ${PROJECT_VERSION})
 
-target_include_directories(Graph-DLL PRIVATE include)
+target_include_directories(Graph-DLL PUBLIC include)
 target_include_directories(Graph-DLL PRIVATE src)
 
 include(GNUInstallDirs)
