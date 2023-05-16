@@ -10,7 +10,7 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-class Vertex final : IVertex {
+class Vertex final : public IVertex {
    protected:
     std::any Value_;
 
