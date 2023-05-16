@@ -12,31 +12,31 @@ namespace graph {
 
 class Vertex final : IVertex {
    protected:
-    std::any value;
+    std::any Value_;
 
    public:
     Vertex(std::any value, const std::vector<std::shared_ptr<IEdge>> edges = {})
-        : IVertex(edges), value(value) {}
+        : IVertex(edges), Value_(value) {}
 
-    Vertex(const Vertex& other) : IVertex(other), value(other.value) {}
+    Vertex(const Vertex& other) : IVertex(other), Value_(other.Value_) {}
 
     ~Vertex() override {}
 
     Vertex& operator=(const Vertex& other) {
         static_cast<IVertex>(*this) = other;
-        value = other.value;
+        Value_ = other.Value_;
         return *this;
     }
 
     Vertex& operator=(Vertex&& other) {
         static_cast<IVertex>(*this) = std::move(other);
-        value = std::move(other.value);
+        Value_ = std::move(other.Value_);
         return *this;
     }
 
-    std::any GetValue() const { return value; }
+    std::any GetValue() const { return Value_; }
 
-    void SetValue(std::any value) { this->value = value; }
+    void SetValue(std::any value) { Value_ = value; }
 };
 
 }  // namespace graph
