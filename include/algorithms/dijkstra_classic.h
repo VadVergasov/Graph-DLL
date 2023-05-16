@@ -8,6 +8,7 @@ under certain conditions; type `show c' for details.
 
 #include <any>
 #include <functional>
+#include <ranges>
 #include <unordered_map>
 #include <vector>
 
@@ -20,7 +21,8 @@ class DijkstraClassic {
    protected:
     std::any MaxValue_;
     std::any MinValue_;
-    std::unordered_map<std::shared_ptr<IVertex>, std::any, VertexHasher> Distances_;
+    std::unordered_map<std::shared_ptr<IVertex>, std::any, VertexHasher>
+        Distances_;
     std::function<bool(const std::any&, const std::any&)> less;
     std::function<std::any(const std::any&, const std::any&)> sum;
 
@@ -37,8 +39,9 @@ class DijkstraClassic {
 
     DijkstraClassic(DijkstraClassic&& other) = default;
 
-    virtual const std::unordered_map<std::shared_ptr<IVertex>, std::any, VertexHasher>& GetDistance(
-        const BidirectionalGraph&, const IVertex&);
+    virtual const std::unordered_map<std::shared_ptr<IVertex>, std::any,
+                                     VertexHasher>&
+    GetDistance(const BidirectionalGraph&, const IVertex&);
 };
 
 }  // namespace graph

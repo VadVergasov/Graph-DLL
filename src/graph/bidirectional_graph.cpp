@@ -6,8 +6,6 @@ under certain conditions; type `show c' for details.
 */
 #include "graph/bidirectional_graph.h"
 
-#include <stdexcept>
-
 namespace graph {
 
 void BidirectionalGraph::AddEdge(const IVertex& first, const IVertex& second) {

@@ -6,8 +6,6 @@ under certain conditions; type `show c' for details.
 */
 #include "algorithms/dijkstra_classic.h"
 
-#include <ranges>
-
 namespace graph {
 
 const std::unordered_map<std::shared_ptr<IVertex>, std::any, VertexHasher>&

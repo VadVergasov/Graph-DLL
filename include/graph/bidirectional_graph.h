@@ -7,6 +7,7 @@ under certain conditions; type `show c' for details.
 #pragma once
 
 #include <memory>
+#include <stdexcept>
 #include <vector>
 
 #include "ibidirectional_edge.h"
