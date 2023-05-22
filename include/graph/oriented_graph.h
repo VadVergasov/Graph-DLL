@@ -22,7 +22,8 @@ class OrientedGraph : public IGraph {
 
     size_t EdgeCount() const override { return EdgeList_.size(); }
 
-    void AddEdge(const IVertex& start, const IVertex& end) override;
+    void AddEdge(const std::shared_ptr<IVertex>& start,
+                 const std::shared_ptr<IVertex>& end) override;
 
     void AddEdge(const IEdge& edge) override;
 

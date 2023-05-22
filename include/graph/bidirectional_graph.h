@@ -26,7 +26,8 @@ class BidirectionalGraph : public IGraph {
 
     size_t EdgeCount() const override { return EdgeList_.size(); }
 
-    void AddEdge(const IVertex&, const IVertex&) override;
+    void AddEdge(const std::shared_ptr<IVertex>&,
+                 const std::shared_ptr<IVertex>&) override;
 
     void AddEdge(const IEdge&) override;
 

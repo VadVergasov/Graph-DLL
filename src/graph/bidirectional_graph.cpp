@@ -8,11 +8,10 @@ under certain conditions; type `show c' for details.
 
 namespace graph {
 
-void BidirectionalGraph::AddEdge(const IVertex& first, const IVertex& second) {
-    const auto& [firstVertex, firstInserted] =
-        VertexList_.insert(std::make_shared<IVertex>(first));
-    const auto& [secondVertex, secondInserted] =
-        VertexList_.insert(std::make_shared<IVertex>(second));
+void BidirectionalGraph::AddEdge(const std::shared_ptr<IVertex>& first,
+                                 const std::shared_ptr<IVertex>& second) {
+    const auto& [firstVertex, firstInserted] = VertexList_.insert(first);
+    const auto& [secondVertex, secondInserted] = VertexList_.insert(second);
     auto edge =
         std::make_shared<IBidirectionalEdge>(*firstVertex, *secondVertex);
     (*firstVertex)->AddNeighbor(edge);

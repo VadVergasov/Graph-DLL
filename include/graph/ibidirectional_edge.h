@@ -24,7 +24,7 @@ class IBidirectionalEdge : public virtual IEdge {
 
     ~IBidirectionalEdge() override {}
 
-    IVertex& Start() const { return *start_.lock(); }
+    std::shared_ptr<IVertex> Start() const { return start_.lock(); }
 };
 
 }  // namespace graph

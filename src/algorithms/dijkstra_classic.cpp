@@ -34,10 +34,10 @@ DijkstraClassic::GetDistance(const BidirectionalGraph& graph,
         }
         used[current] = true;
         for (const auto& j : current->GetEdges()) {
-            auto next = std::make_shared<IVertex>(
-                (j->End().GetId() == current->GetId())
+            auto next =
+                (j->End()->GetId() == current->GetId())
                     ? std::dynamic_pointer_cast<IBidirectionalEdge>(j)->Start()
-                    : j->End());
+                    : j->End();
             auto length = std::dynamic_pointer_cast<WeightBidirectionalEdge>(j)
                               ->GetValue();
             if (less(sum(Distances_[current], length), Distances_[next])) {

@@ -23,7 +23,7 @@ class IEdge {
 
     virtual ~IEdge() {}
 
-    IVertex& End() const { return *end_.lock(); }
+    std::shared_ptr<IVertex> End() const { return end_.lock(); }
 };
 
 }  // namespace graph

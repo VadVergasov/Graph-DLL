@@ -23,7 +23,8 @@ class IGraph {
 
     virtual size_t EdgeCount() const = 0;
 
-    virtual void AddEdge(const IVertex&, const IVertex&) = 0;
+    virtual void AddEdge(const std::shared_ptr<IVertex>&,
+                         const std::shared_ptr<IVertex>&) = 0;
 
     virtual void AddEdge(const IEdge&) = 0;
 

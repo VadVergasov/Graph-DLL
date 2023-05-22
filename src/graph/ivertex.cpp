@@ -16,14 +16,14 @@ void IVertex::RemoveNeighbor(const IVertex& vertex) {
         if (auto bidirectional_edge =
                 std::dynamic_pointer_cast<const IBidirectionalEdge>(edge)) {
             auto start = bidirectional_edge->Start(), end = edge->End();
-            if (start.GetId() != this->GetId()) {
+            if (start->GetId() != this->GetId()) {
                 swap(start, end);
             }
-            if (end.GetId() == vertex.GetId()) {
-                for (auto other = end.edges_.begin(); other != end.edges_.end();
-                     other++) {
+            if (end->GetId() == vertex.GetId()) {
+                for (auto other = end->edges_.begin();
+                     other != end->edges_.end(); other++) {
                     if (edge == *it) {
-                        end.edges_.erase(it);
+                        end->edges_.erase(it);
                         break;
                     }
                 }
@@ -31,7 +31,7 @@ void IVertex::RemoveNeighbor(const IVertex& vertex) {
                 break;
             }
         } else {
-            if (edge->End().GetId() == vertex.GetId()) {
+            if (edge->End()->GetId() == vertex.GetId()) {
                 edges_.erase(it);
                 break;
             }
