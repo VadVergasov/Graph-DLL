@@ -25,6 +25,8 @@ class IVertex {
     std::vector<std::shared_ptr<IEdge>> edges_;
 
    public:
+    IVertex(size_t id) : id_(id) {}
+
     IVertex(const std::vector<std::shared_ptr<IEdge>>& edges = {})
         : id_(newId++), edges_(edges) {}
 

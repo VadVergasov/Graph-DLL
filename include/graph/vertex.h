@@ -15,6 +15,8 @@ class Vertex final : public IVertex {
     std::any Value_;
 
    public:
+    Vertex(size_t id) : IVertex(id) {}
+
     Vertex(std::any value, const std::vector<std::shared_ptr<IEdge>> edges = {})
         : IVertex(edges), Value_(value) {}
 

@@ -12,6 +12,8 @@ namespace graph {
 
 class EmptyVertex final : public IVertex {
    public:
+    EmptyVertex(size_t id) : IVertex(id) {}
+
     EmptyVertex(const std::vector<std::shared_ptr<IEdge>> edges = {})
         : IVertex(edges) {}
 
