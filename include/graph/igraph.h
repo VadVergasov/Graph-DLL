@@ -16,7 +16,8 @@ namespace graph {
 
 class IGraph {
    protected:
-    std::unordered_set<std::shared_ptr<IVertex>, VertexHasher> VertexList_;
+    std::unordered_set<std::shared_ptr<IVertex>, VertexHasher, VertexHasher>
+        VertexList_;
 
    public:
     virtual size_t VertexCount() const = 0;
@@ -30,14 +31,10 @@ class IGraph {
 
     virtual void RemoveEdge(const IEdge&) = 0;
 
-    const std::unordered_set<std::shared_ptr<IVertex>, VertexHasher>&
-    GetVertexes() const {
-        return VertexList_;
-    }
+    const decltype(VertexList_)& GetVertexes() const { return VertexList_; }
 
-    std::unordered_set<std::shared_ptr<IVertex>, VertexHasher>& GetVertexes() {
-        return const_cast<
-            std::unordered_set<std::shared_ptr<IVertex>, VertexHasher>&>(
+    decltype(VertexList_)& GetVertexes() {
+        return const_cast<decltype(VertexList_)&>(
             static_cast<const IGraph&>(*this).GetVertexes());
     }
 };

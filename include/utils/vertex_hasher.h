@@ -14,6 +14,10 @@ class VertexHasher {
     size_t operator()(const std::shared_ptr<IVertex>& vertex) const {
         return std::hash<size_t>()(vertex->GetId());
     }
+
+    bool operator()(const std::shared_ptr<IVertex>& lhs, const std::shared_ptr<IVertex>& rhs) const {
+        return lhs->GetId() == rhs->GetId();
+    }
 };
 
 }  // namespace graph
